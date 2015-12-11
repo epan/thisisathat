@@ -43,3 +43,4 @@ generateMetaphor(nouns);
 // TODO: Figure out how to reference a file for the list of nouns externally
 // TODO: Prevent same noun from being selected twice
 // TODO: Figure out what to do for plural nouns for "are" instead of "is"
+// TODO: Make post to Twitter
