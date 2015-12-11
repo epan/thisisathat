@@ -1,5 +1,6 @@
 'use strict';
 
+// Hardcoded list of possible nouns
 var nouns = [
   'cat',
   'dog',
@@ -8,15 +9,16 @@ var nouns = [
 ];
 
 // Returns a random integer between min (included) and max (excluded)
-// Using Math.round() will give you a non-uniform distribution!
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// Capitalizes the first letter of a string
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Randomly select two nouns and generate a sentence
 function generateMetaphor(nouns) {
   var firstNoun = '';
   var secondNoun = '';
@@ -37,3 +39,7 @@ function generateMetaphor(nouns) {
 }
 
 generateMetaphor(nouns);
+
+// TODO: Figure out how to reference a file for the list of nouns externally
+// TODO: Prevent same noun from being selected twice
+// TODO: Figure out what to do for plural nouns for "are" instead of "is"
