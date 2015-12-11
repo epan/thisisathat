@@ -6,13 +6,6 @@ var nouns = [
   'mouse',
   'house'
 ];
-var firstNoun = '';
-var secondNoun = '';
-var metaphor = '';
-
-var numberOfNouns = nouns.length;
-var nounIndex1 = 0;
-var nounIndex2 = 0;
 
 // Returns a random integer between min (included) and max (excluded)
 // Using Math.round() will give you a non-uniform distribution!
@@ -25,6 +18,14 @@ function capitalizeFirstLetter(string) {
 }
 
 function generateMetaphor(nouns) {
+  var firstNoun = '';
+  var secondNoun = '';
+  var metaphor = '';
+
+  var numberOfNouns = nouns.length;
+  var nounIndex1 = 0;
+  var nounIndex2 = 0;
+
   nounIndex1 = getRandomInt(0, numberOfNouns);
   nounIndex2 = getRandomInt(0, numberOfNouns);
 
