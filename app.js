@@ -21,7 +21,7 @@ function getRandomInt(min, max) {
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function generateMetaphor(nouns) {
