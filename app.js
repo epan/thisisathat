@@ -20,11 +20,15 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function generateMetaphor(nouns) {
   nounIndex1 = getRandomInt(0, numberOfNouns);
   nounIndex2 = getRandomInt(0, numberOfNouns);
 
-  firstNoun = nouns[nounIndex1];
+  firstNoun = capitalizeFirstLetter(nouns[nounIndex1]);
   secondNoun = nouns[nounIndex2];
 
   metaphor = firstNoun + ' is a ' + secondNoun + '.';
