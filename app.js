@@ -61,6 +61,12 @@ var generateMetaphor = function (req, res, next) {
   // TODO: Figure out what to do for plural nouns for "are" instead of "is"
   // TODO: Make post to Twitter
 
+  client.post('statuses/update', {status: 'I Love Twitter'},  function(error, tweet, response){
+    if(error) throw error;
+    console.log(tweet);  // Tweet body.
+    console.log(response);  // Raw response object.
+  });
+
   next();
 };
 
