@@ -3,6 +3,8 @@
 var express = require('express');
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 var generateMetaphor = function (req, res, next) {
   // Hardcoded list of possible nouns
   var nouns = [
@@ -48,7 +50,7 @@ var generateMetaphor = function (req, res, next) {
   // TODO: Prevent same noun from being selected twice
   // TODO: Figure out what to do for plural nouns for "are" instead of "is"
   // TODO: Make post to Twitter
-  
+
   next();
 };
 
@@ -58,9 +60,6 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'));
 });
