@@ -24,7 +24,7 @@ function getRandomInt(min, max) {
 
 // Capitalizes the first letter of a string
 function capitalizeFirstLetter(string) {
-  if (string.length > 1) {
+  if (string.length < 1) {
     return string.toUpperCase();
   } else {
     return string.charAt(0).toUpperCase() + string.slice(1);
