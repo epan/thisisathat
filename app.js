@@ -25,7 +25,7 @@ function getRandomInt(min, max) {
 // Capitalizes the first letter of a string
 function capitalizeFirstLetter(word) {
   if (word.length > 1) {
-    return word.charAt(0).toUpperCase() + word.slice(1);    
+    return word.charAt(0).toUpperCase() + word.slice(1);
   } else {
     return word.toUpperCase();
   }
@@ -52,7 +52,15 @@ function constructMetaphor(nouns) {
   return metaphor;
 }
 
-constructMetaphor(NOUNS);
+// Post to twitter
+client.post('statuses/update', {status: constructMetaphor(NOUNS)}, function callback(error, tweet, response) {
+  if (error) {
+    console.log(error);
+    throw error;
+  }
+  console.log(tweet);
+  console.log(response);
+});
 
   // TODO: Figure out how to reference a file for the list of nouns externally
   // TODO: Prevent same noun from being selected twice
