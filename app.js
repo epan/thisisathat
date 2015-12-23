@@ -16,7 +16,6 @@ var NOUNS = [
   'mouse',
   'house'
 ];
-var metaphor = '';
 
 // Returns a random integer between min (included) and max (excluded)
 function getRandomInt(min, max) {
@@ -30,6 +29,7 @@ function capitalizeFirstLetter(string) {
 
 // Randomly select two nouns and generate a sentence
 function constructMetaphor(nouns) {
+  var metaphor = '';
   var firstNoun = '';
   var secondNoun = '';
 
@@ -45,6 +45,7 @@ function constructMetaphor(nouns) {
 
   metaphor = firstNoun + ' is a ' + secondNoun + '.';
   console.log(metaphor);
+  return metaphor;
 }
 
 constructMetaphor(NOUNS);
