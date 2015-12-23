@@ -23,11 +23,11 @@ function getRandomInt(min, max) {
 }
 
 // Capitalizes the first letter of a string
-function capitalizeFirstLetter(string) {
-  if (string.length > 1) {
-    return string.charAt(0).toUpperCase() + string.slice(1);    
+function capitalizeFirstLetter(word) {
+  if (word.length > 1) {
+    return word.charAt(0).toUpperCase() + word.slice(1);    
   } else {
-    return string.toUpperCase();
+    return word.toUpperCase();
   }
 }
 
