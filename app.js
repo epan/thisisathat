@@ -15,7 +15,7 @@ var client = new Twitter({
 app.set('port', (process.env.PORT || 5000));
 
 // Metaphor generator middelware
-var generateMetaphor = function (req, res, next) {
+var randomMetaphor = function (req, res, next) {
   // Hardcoded list of possible nouns
   var nouns = [
     'cat',
@@ -23,6 +23,7 @@ var generateMetaphor = function (req, res, next) {
     'mouse',
     'house'
   ];
+  var metaphor = '';
 
   // Returns a random integer between min (included) and max (excluded)
   function getRandomInt(min, max) {
@@ -35,10 +36,9 @@ var generateMetaphor = function (req, res, next) {
   }
 
   // Randomly select two nouns and generate a sentence
-  function generateMetaphor(nouns) {
+  function constructMetaphor(nouns) {
     var firstNoun = '';
     var secondNoun = '';
-    var metaphor = '';
 
     var numberOfNouns = nouns.length;
     var nounIndex1 = 0;
@@ -54,24 +54,15 @@ var generateMetaphor = function (req, res, next) {
     console.log(metaphor);
   }
 
-  generateMetaphor(nouns);
+  return constructMetaphor(nouns);
+
+  next();
 
   // TODO: Figure out how to reference a file for the list of nouns externally
   // TODO: Prevent same noun from being selected twice
   // TODO: Figure out what to do for plural nouns for "are" instead of "is"
-  // TODO: Make post to Twitter
-
-  client.post('statuses/update', {status: 'I Love Twitter'},  function(error, tweet, response){
-    if(error) throw error;
-    console.log(tweet);  // Tweet body.
-    console.log(response);  // Raw response object.
-  });
-
-  next();
-};
-
-// Load the middleware
-app.use(generateMetaphor);
+  // TODO: Figure out how to deal with "is an" instead of "is a" // TODO: Make post to Twitter }; // Posts a tweet var postTweet = function (tweetText) { client.post('statuses/update', {status: tweetText},  function(error, tweet, response) { if(error) { throw error; } console.log(tweet);  // Tweet body. }); }; // Load the middleware
+app.use(postTweet(randomMetaphor()));
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
