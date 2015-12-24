@@ -1043,18 +1043,12 @@ function constructMetaphor(nouns) {
   var metaphor = '';
   var firstNoun = '';
   var secondNoun = '';
-
   var numberOfNouns = nouns.length;
-  var nounIndex1 = 0;
-  var nounIndex2 = 0;
 
-  nounIndex1 = getRandomInt(0, numberOfNouns);
-  nounIndex2 = getRandomInt(0, numberOfNouns);
+  firstNoun = nouns[getRandomInt(0, numberOfNouns)];
+  secondNoun = nouns[getRandomInt(0, numberOfNouns)];
 
-  firstNoun = capitalizeFirstLetter(nouns[nounIndex1]);
-  secondNoun = nouns[nounIndex2];
-
-  metaphor = firstNoun + ' is a ' + secondNoun + '.';
+  metaphor = capitalizeFirstLetter(firstNoun) + ' is a ' + secondNoun + '.';
   console.log(metaphor);
   return metaphor;
 }
