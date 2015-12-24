@@ -1,16 +1,6 @@
-'use strict';
-
-var Twitter = require('twitter');
-// var fs = require('fs');
-
-var client = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
-});
-
-var NOUNS = [
+{
+  "description": "A list of English nouns.",
+  "nouns": [
     "Armour",
     "Barrymore",
     "Cabot",
@@ -1004,73 +994,5 @@ var NOUNS = [
     "words",
     "workman",
     "youngster"
-  ];
-
-// Hardcoded list of possible nouns
-// var NOUNS = [
-//   'cat',
-//   'dog',
-//   'mouse',
-//   'house'
-// ];
-
-// fs.readFileSync('./assets/nouns.json', 'utf-8', function callback(err, data) {
-//   if (err) {
-//     console.log(err);
-//     throw err;
-//   }
-//   NOUNS = data.nouns;
-//   console.log(NOUNS);
-//   console.log(data);
-// });
-
-// Returns a random integer between min (included) and max (excluded)
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  ]
 }
-
-// Capitalizes the first letter of a string
-function capitalizeFirstLetter(word) {
-  if (word.length > 1) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  } else {
-    return word.toUpperCase();
-  }
-}
-
-// Randomly select two nouns and generate a sentence
-function constructMetaphor(nouns) {
-  var metaphor = '';
-  var firstNoun = '';
-  var secondNoun = '';
-
-  var numberOfNouns = nouns.length;
-  var nounIndex1 = 0;
-  var nounIndex2 = 0;
-
-  nounIndex1 = getRandomInt(0, numberOfNouns);
-  nounIndex2 = getRandomInt(0, numberOfNouns);
-
-  firstNoun = capitalizeFirstLetter(nouns[nounIndex1]);
-  secondNoun = nouns[nounIndex2];
-
-  metaphor = firstNoun + ' is a ' + secondNoun + '.';
-  console.log(metaphor);
-  return metaphor;
-}
-
-// Post to twitter
-client.post('statuses/update', {status: constructMetaphor(NOUNS)}, function callback(error, tweet, response) {
-  if (error) {
-    console.log(error);
-    throw error;
-  }
-  console.log(tweet);
-  console.log(response);
-});
-
-  // TODO: Figure out how to reference a file for the list of nouns externally
-  // TODO: Prevent same noun from being selected twice
-  // TODO: Figure out what to do for plural nouns for "are" instead of "is"
-  // TODO: Figure out how to deal with "is an" instead of "is a"
-  // TODO: Make post to Twitter
