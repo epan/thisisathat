@@ -1038,15 +1038,12 @@ function capitalizeFirstLetter(word) {
   }
 }
 
-// Randomly select two nouns and generate a sentence
+// Randomly select two nouns from an array and generate a sentence
 function constructMetaphor(nouns) {
   var metaphor = '';
-  var firstNoun = '';
-  var secondNoun = '';
   var numberOfNouns = nouns.length;
-
-  firstNoun = nouns[getRandomInt(0, numberOfNouns)];
-  secondNoun = nouns[getRandomInt(0, numberOfNouns)];
+  var firstNoun = nouns[getRandomInt(0, numberOfNouns)];
+  var secondNoun = nouns[getRandomInt(0, numberOfNouns)];
 
   metaphor = capitalizeFirstLetter(firstNoun) + ' is a ' + secondNoun + '.';
   console.log(metaphor);
