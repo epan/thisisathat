@@ -1,7 +1,7 @@
 'use strict';
 
 var Twitter = require('twitter');
-var Articles = require('Articles');
+var Articles = require('articles');
 // var fs = require('fs');
 
 var client = new Twitter({
