@@ -1,6 +1,7 @@
 'use strict';
 
 var Twitter = require('twitter');
+var Articles = require('Articles');
 // var fs = require('fs');
 
 var client = new Twitter({
@@ -1045,7 +1046,7 @@ function constructMetaphor(nouns) {
   var firstNoun = nouns[getRandomInt(0, numberOfNouns)];
   var secondNoun = nouns[getRandomInt(0, numberOfNouns)];
 
-  metaphor = capitalizeFirstLetter(firstNoun) + ' is a ' + secondNoun + '.';
+  metaphor = capitalizeFirstLetter(firstNoun) + ' is ' + Articles.articlize(secondNoun) + '.';
   console.log(metaphor);
   return metaphor;
 }
