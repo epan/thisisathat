@@ -1,4 +1,3 @@
 # thisisathat
-metaphor bot for twitter
-
-test
+metaphor bot for twitter 
+https://twitter.com/thisisathat
